@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="mvc_EFdbfirst_intrvw23Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tblstudent">
+    <Key>
+      <PropertyRef Name="stnd_id" />
+    </Key>
+    <Property Name="stnd_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="age" Type="Int32" />
+    <Property Name="rollno" Type="Int32" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="city" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="country" Type="Int32" />
+    <Property Name="state" Type="Int32" />
+  </EntityType>
+  <EntityContainer Name="DatabaseContext" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tblstudents" EntityType="Self.tblstudent" />
+    <FunctionImport Name="sp_delete">
+      <Parameter Name="stnd_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_edit" ReturnType="Collection(mvc_EFdbfirst_intrvw23Model.sp_edit_Result)">
+      <Parameter Name="stnd_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_getdata" ReturnType="Collection(mvc_EFdbfirst_intrvw23Model.sp_getdata_Result)" />
+    <FunctionImport Name="sp_insert">
+      <Parameter Name="name" Mode="In" Type="String" />
+      <Parameter Name="age" Mode="In" Type="Int32" />
+      <Parameter Name="rollno" Mode="In" Type="Int32" />
+      <Parameter Name="email" Mode="In" Type="String" />
+      <Parameter Name="password" Mode="In" Type="String" />
+      <Parameter Name="city" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_update">
+      <Parameter Name="stnd_id" Mode="In" Type="Int32" />
+      <Parameter Name="name" Mode="In" Type="String" />
+      <Parameter Name="age" Mode="In" Type="Int32" />
+      <Parameter Name="rollno" Mode="In" Type="Int32" />
+      <Parameter Name="email" Mode="In" Type="String" />
+      <Parameter Name="password" Mode="In" Type="String" />
+      <Parameter Name="city" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="tblcountries" EntityType="mvc_EFdbfirst_intrvw23Model.tblcountry" />
+    <EntitySet Name="tblstates" EntityType="mvc_EFdbfirst_intrvw23Model.tblstate" />
+    <FunctionImport Name="sp_Country" ReturnType="Collection(mvc_EFdbfirst_intrvw23Model.sp_Country_Result)" />
+    <FunctionImport Name="sp_State" ReturnType="Collection(mvc_EFdbfirst_intrvw23Model.sp_State_Result)">
+      <Parameter Name="cid" Mode="In" Type="Int32" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="sp_edit_Result">
+    <Property Type="Int32" Name="stnd_id" Nullable="false" />
+    <Property Type="String" Name="name" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="age" Nullable="true" />
+    <Property Type="Int32" Name="rollno" Nullable="true" />
+    <Property Type="String" Name="email" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="password" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="city" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="sp_getdata_Result">
+    <Property Type="Int32" Name="stnd_id" Nullable="false" />
+    <Property Type="String" Name="name" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="age" Nullable="true" />
+    <Property Type="Int32" Name="rollno" Nullable="true" />
+    <Property Type="String" Name="email" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="password" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="city" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <EntityType Name="tblcountry">
+    <Key>
+      <PropertyRef Name="cid" />
+    </Key>
+    <Property Name="cid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="tblstate">
+    <Key>
+      <PropertyRef Name="sid" />
+    </Key>
+    <Property Name="sid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="cid" Type="Int32" />
+    <Property Name="sname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <ComplexType Name="sp_Country_Result">
+    <Property Type="Int32" Name="cid" Nullable="false" />
+    <Property Type="String" Name="cname" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="sp_State_Result">
+    <Property Type="Int32" Name="sid" Nullable="false" />
+    <Property Type="Int32" Name="cid" Nullable="true" />
+    <Property Type="String" Name="sname" Nullable="true" MaxLength="50" />
+  </ComplexType>
+</Schema>

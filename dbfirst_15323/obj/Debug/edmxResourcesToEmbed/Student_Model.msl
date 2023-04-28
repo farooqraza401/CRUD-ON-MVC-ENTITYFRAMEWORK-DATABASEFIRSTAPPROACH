@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="mvc_EFdbfirst_intrvw23ModelStoreContainer" CdmEntityContainer="DatabaseContext">
+    <EntitySetMapping Name="tblstudents">
+      <EntityTypeMapping TypeName="mvc_EFdbfirst_intrvw23Model.tblstudent">
+        <MappingFragment StoreEntitySet="tblstudents">
+          <ScalarProperty Name="state" ColumnName="state" />
+          <ScalarProperty Name="country" ColumnName="country" />
+          <ScalarProperty Name="stnd_id" ColumnName="stnd_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="age" ColumnName="age" />
+          <ScalarProperty Name="rollno" ColumnName="rollno" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="city" ColumnName="city" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_delete" FunctionName="mvc_EFdbfirst_intrvw23Model.Store.sp_delete" />
+    <FunctionImportMapping FunctionImportName="sp_edit" FunctionName="mvc_EFdbfirst_intrvw23Model.Store.sp_edit">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mvc_EFdbfirst_intrvw23Model.sp_edit_Result">
+          <ScalarProperty Name="stnd_id" ColumnName="stnd_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="age" ColumnName="age" />
+          <ScalarProperty Name="rollno" ColumnName="rollno" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="city" ColumnName="city" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_getdata" FunctionName="mvc_EFdbfirst_intrvw23Model.Store.sp_getdata">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mvc_EFdbfirst_intrvw23Model.sp_getdata_Result">
+          <ScalarProperty Name="stnd_id" ColumnName="stnd_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="age" ColumnName="age" />
+          <ScalarProperty Name="rollno" ColumnName="rollno" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="city" ColumnName="city" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_insert" FunctionName="mvc_EFdbfirst_intrvw23Model.Store.sp_insert" />
+    <FunctionImportMapping FunctionImportName="sp_update" FunctionName="mvc_EFdbfirst_intrvw23Model.Store.sp_update" />
+    <EntitySetMapping Name="tblcountries">
+      <EntityTypeMapping TypeName="mvc_EFdbfirst_intrvw23Model.tblcountry">
+        <MappingFragment StoreEntitySet="tblcountry">
+          <ScalarProperty Name="cname" ColumnName="cname" />
+          <ScalarProperty Name="cid" ColumnName="cid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblstates">
+      <EntityTypeMapping TypeName="mvc_EFdbfirst_intrvw23Model.tblstate">
+        <MappingFragment StoreEntitySet="tblstate">
+          <ScalarProperty Name="sname" ColumnName="sname" />
+          <ScalarProperty Name="cid" ColumnName="cid" />
+          <ScalarProperty Name="sid" ColumnName="sid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="sp_Country" FunctionName="mvc_EFdbfirst_intrvw23Model.Store.sp_Country">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mvc_EFdbfirst_intrvw23Model.sp_Country_Result">
+          <ScalarProperty Name="cid" ColumnName="cid" />
+          <ScalarProperty Name="cname" ColumnName="cname" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_State" FunctionName="mvc_EFdbfirst_intrvw23Model.Store.sp_State">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="mvc_EFdbfirst_intrvw23Model.sp_State_Result">
+          <ScalarProperty Name="sid" ColumnName="sid" />
+          <ScalarProperty Name="cid" ColumnName="cid" />
+          <ScalarProperty Name="sname" ColumnName="sname" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>
